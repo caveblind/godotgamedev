@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://i8xmb8do73wr"]
+[gd_scene load_steps=7 format=3 uid="uid://i8xmb8do73wr"]
 
 [ext_resource type="Texture2D" uid="uid://dadabv3ibviox" path="res://icon.svg" id="1_f5ky1"]
 [ext_resource type="Script" path="res://icon.gd" id="2_pf3y0"]
 [ext_resource type="Script" path="res://button.gd" id="2_takoo"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="4_ex54j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbica"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqxse"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,3 +26,25 @@ script = ExtResource("2_takoo")
 
 [node name="Node" type="Node" parent="."]
 metadata/spells = ["fireball"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("4_ex54j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_qbica")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_f5ky1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(500, 500)
+scale = Vector2(100, 1)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_bqxse")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+scale = Vector2(1, 0.25)
+texture = ExtResource("1_f5ky1")
