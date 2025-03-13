@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://drlnewny77xmp"]
+
+[ext_resource type="PackedScene" uid="uid://dt4plrtvl1fg4" path="res://scenes/character_body_3d.tscn" id="1_jyhfs"]
+[ext_resource type="Script" uid="uid://cqbf8lfa3svx0" path="res://scenes/character_body_3d.gd" id="2_tbgi4"]
+[ext_resource type="Script" uid="uid://d0rtd3ts3lim6" path="res://camera_3d.gd" id="3_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bf7cxc326uf6j" path="res://floor.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://1avl1y8mmtit" path="res://scenes/box.tscn" id="5_tbgi4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ig7tw"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_0xm2m"]
+sky_material = SubResource("ProceduralSkyMaterial_ig7tw")
+
+[sub_resource type="Environment" id="Environment_h2yge"]
+background_mode = 2
+sky = SubResource("Sky_0xm2m")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00743508, -2.38419e-07, -0.00370669)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h2yge")
+
+[node name="ballocks" parent="." instance=ExtResource("1_jyhfs")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.165259, 0.806568, -0.209958)
+script = ExtResource("2_tbgi4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.497287, 0.233073, 3.40091)
+script = ExtResource("3_tefeu")
+
+[node name="StaticBody3D" parent="." instance=ExtResource("4_jyhfs")]
+
+[node name="BOX" parent="." instance=ExtResource("5_tbgi4")]
+transform = Transform3D(0.459374, 87.3498, 0, -0.878739, 45.6634, 0, 0, 0, 0.991568, 1.64079, 0.637686, 0.237111)

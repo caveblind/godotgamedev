@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://x05pwfe43vkd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ryoud"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oj3tl"]
+
+[node name="floor" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_ryoud")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
+transform = Transform3D(8.1034, 0, 0, 0, 0.367148, 0, 0, 0, 7.88234, 0, 0, 0)
+material = SubResource("StandardMaterial3D_oj3tl")
