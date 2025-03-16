@@ -28,6 +28,7 @@ script = ExtResource("2_takoo")
 metadata/spells = ["fireball"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(100, 100)
 script = ExtResource("4_ex54j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
